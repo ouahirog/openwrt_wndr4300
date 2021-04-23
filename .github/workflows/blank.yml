@@ -1,36 +1,87 @@
-# This is a basic workflow to help you get started with Actions
+#
+# This is free software, lisence use MIT.
+# 
+# Copyright (C) 2019 P3TERX <https://p3terx.com>
+# Copyright (C) 2019 KFERMercer <KFER.Mercer@gmail.com>
+# 
+# <https://github.com/KFERMercer/OpenWrt-CI>
+# 
 
-name: CI
+name: OpenWrt-WNDR4300
 
-# Controls when the action will run. 
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
+  schedule:
+    - cron: 0 20 * * *
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches:
+      - master
+env:
+  SSH_ACTIONS: true
+  TZ: Asia/Shanghai
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
+  build_openwrt_wndr4300:
+
+    name: Build OpenWrt_wndr4300 and release
+    runs-on: ubuntu-18.04
+
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+      - name: Install compile software
+        env:
+          DEBIAN_FRONTEND: noninteractive
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+          sudo -E apt-get update
+          sudo -E apt-get -y install build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch python3 unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs gcc-multilib g++-multilib p7zip p7zip-full msmtp libssl-dev texinfo libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint device-tree-compiler antlr3 gperf
+          sudo -E apt-get -y autoremove --purge
+          sudo -E apt-get clean
+          df -h
+          
+      - name: Get Openwrt_wndr4300 source & compile
+        run: |
+          cd ~/work
+          mkdir wndr4300
+          cd wndr4300
+          wget https://downloads.openwrt.org/releases/19.07.7/targets/ar71xx/nand/openwrt-imagebuilder-19.07.7-ar71xx-nand.Linux-x86_64.tar.xz
+          xz -d openwrt-imagebuilder-19.07.7-ar71xx-nand.Linux-x86_64.tar.xz
+          tar -xvf openwrt-imagebuilder-19.07.7-ar71xx-nand.Linux-x86_64.tar
+          cd openwrt-imagebuilder-19.07.7-ar71xx-nand.Linux-x86_64/target/linux/ar71xx/image/
+          sed -i -e 's/23552k/121856k/' ./Makefile
+          sed -i -e 's/25600k/123904k/' ./Makefile
+          cd ../../../..
+          sudo make image PROFILE=WNDR4300V1
+          
+      - name: SSH connection to Actions
+        uses:  P3TERX/ssh2actions@main
+        if: env.SSH_ACTIONS == 'true'
+              
+      - name: Prepare artifact
+        run: find ./bin/targets/ -type d -name "packages" | xargs rm -rf {}
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@master
+        with:
+          name: OpenWrt_firmware
+          path: ./bin/targets/ar71xx/nand
+
+      - name: Create release
+        if: github.event == 'push'
+        id: create_release
+        uses: actions/create-release@v1.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: ${{ github.ref }}
+          draft: false
+          prerelease: false      
+
+      - name: Upload release asset
+        if: github.event == 'push'
+        id: upload-release-asset 
+        uses: actions/upload-release-asset@v1.0.2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./bin/targets/*/*/
