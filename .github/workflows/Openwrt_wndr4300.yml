@@ -15,7 +15,6 @@ env:
 jobs:
 
   build_openwrt_wndr4300:
-
     name: Build OpenWrt_wndr4300 and release
     runs-on: ubuntu-18.04
 
