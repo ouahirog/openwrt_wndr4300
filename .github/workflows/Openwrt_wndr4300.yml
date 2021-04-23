@@ -65,8 +65,8 @@ jobs:
           tag_name: ${{ github.ref }}
           release_name: ${{ github.ref }}
           draft: false
-          prerelease: false      
-
+          prerelease: false
+          
       - name: Upload release asset
         if: github.event == 'push'
         id: upload-release-asset 
