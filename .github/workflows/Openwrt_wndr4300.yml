@@ -5,7 +5,7 @@ name: OpenWrt-wndr4300
 on:
   schedule:
     - cron: 0 20 * * *
-  push:
+  push_request:
     branches:
       - master
 env:
