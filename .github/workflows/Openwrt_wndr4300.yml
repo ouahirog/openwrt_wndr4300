@@ -45,11 +45,11 @@ jobs:
         if: env.SSH_ACTIONS == 'true'
               
       - name: Assemble Artifact
-          run: |
-            cd ~/work/openwrt_wndr4300
-            rm -rf ./artifact/
-            mkdir -p ./artifact/
-            find openwrt-imagebuilder-19.07.7-ar71xx-nand.Linux-x86_64/bin/targets/ar71xx/nand/ -name "openwrt_wndr4300*" | xargs -i mv -f {} ./artifact/
+        run: |
+          cd ~/work/openwrt_wndr4300
+          rm -rf ./artifact/
+          mkdir -p ./artifact/
+          find openwrt-imagebuilder-19.07.7-ar71xx-nand.Linux-x86_64/bin/targets/ar71xx/nand/ -name "openwrt_wndr4300*" | xargs -i mv -f {} ./artifact/
           
       - name: Upload Artifact
         uses: actions/upload-artifact@master
