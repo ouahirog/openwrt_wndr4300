@@ -5,9 +5,9 @@ name: OpenWrt-wndr4300
 on:
   schedule:
     - cron: 0 20 * * *
-  push_request:
+  push:
     branches:
-      - master
+      - main
 env:
   SSH_ACTIONS: true
   TZ: Asia/Shanghai
