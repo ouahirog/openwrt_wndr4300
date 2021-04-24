@@ -31,6 +31,7 @@ jobs:
       - name: Get Openwrt_wndr4300 source & compile
         run: |
           cd ~/work
+          pwd
           mkdir wndr4300
           cd wndr4300
           wget https://downloads.openwrt.org/releases/19.07.7/targets/ar71xx/nand/openwrt-imagebuilder-19.07.7-ar71xx-nand.Linux-x86_64.tar.xz
