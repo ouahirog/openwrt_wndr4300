@@ -55,4 +55,4 @@ jobs:
         uses: actions/upload-artifact@master
         with:
           name: openwrt-19.07.7-ar71xx-nand-wndr4300
-          path: ./artifact/
+          path: ~/work/openwrt_wndr4300/artifact/
