@@ -51,8 +51,7 @@ jobs:
         uses: actions/upload-artifact@master
         with:
           name: OpenWrt_firmware
-          path: ./bin/targets/ar71xx/nand
-
+          path: ~/work/openwrt_wndr4300/openwrt-imagebuilder-19.07.7-ar71xx-nand.Linux-x86_64/bin/targets/ar71xx/nand
       - name: Create release
         if: github.event == 'push'
         id: create_release
