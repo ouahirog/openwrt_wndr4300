@@ -44,32 +44,15 @@ jobs:
         uses:  P3TERX/ssh2actions@main
         if: env.SSH_ACTIONS == 'true'
               
-      - name: Prepare artifact
-        run: find ./bin/targets/ -type d -name "packages" | xargs rm -rf {}
-
-      - name: Upload artifact
+      - name: Assemble Artifact
+          run: |
+            cd ~/work/openwrt_wndr4300
+            rm -rf ./artifact/
+            mkdir -p ./artifact/
+            find openwrt-imagebuilder-19.07.7-ar71xx-nand.Linux-x86_64/bin/targets/ar71xx/nand/ -name "openwrt_wndr4300*" | xargs -i mv -f {} ./artifact/
+          
+      - name: Upload Artifact
         uses: actions/upload-artifact@master
         with:
-          name: OpenWrt_firmware
-          path: ~/work/openwrt_wndr4300/openwrt-imagebuilder-19.07.7-ar71xx-nand.Linux-x86_64/bin/targets/ar71xx/nand
-      - name: Create release
-        if: github.event == 'push'
-        id: create_release
-        uses: actions/create-release@v1.0.1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ github.ref }}
-          release_name: ${{ github.ref }}
-          draft: false
-          prerelease: false
-          
-      - name: Upload release asset
-        if: github.event == 'push'
-        id: upload-release-asset 
-        uses: actions/upload-release-asset@v1.0.2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./bin/targets/*/*/
+          name: Openwrt_19.07.7_wndr4300
+          path: ./artifact/
