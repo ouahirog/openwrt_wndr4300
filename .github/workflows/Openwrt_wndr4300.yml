@@ -36,7 +36,7 @@ jobs:
           tar -xvf openwrt-imagebuilder-19.07.7-ar71xx-nand.Linux-x86_64.tar
           cd openwrt-imagebuilder-19.07.7-ar71xx-nand.Linux-x86_64/target/linux/ar71xx/image/
 #          sed -i -e 's/23552k/121856k/' ./Makefile
-#          sed -i -e 's/25600k/123904k/' ./Makefile
+#          sed -i -e 's/25600k/123904k/' ./Makefile #
           sed -i s/'23552k(ubi),25600k@0x6c0000(firmware)'/'120832k(ubi),122880k@0x6c0000(firmware)'/ legacy.mk
           cd ../../../..
           sudo make image PROFILE=WNDR4300V1
