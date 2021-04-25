@@ -36,7 +36,7 @@ jobs:
           tar -xvf openwrt-imagebuilder-19.07.7-ar71xx-nand.Linux-x86_64.tar
           cd openwrt-imagebuilder-19.07.7-ar71xx-nand.Linux-x86_64/target
           sed -i s/'23552k(ubi),25600k@0x6c0000(firmware)'/'120832k(ubi),122880k@0x6c0000(firmware)'/ ./linux/ar71xx/image/legacy.mk
-          sudo make image PROFILE=WNDR4300V1 PACKAGES="luci"
+          sudo make image PROFILE=WNDR4300V1
           
       - name: SSH connection to Actions
         uses:  P3TERX/ssh2actions@main
