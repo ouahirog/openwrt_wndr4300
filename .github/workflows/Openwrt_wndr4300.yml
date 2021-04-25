@@ -108,7 +108,9 @@ jobs:
               # cat >> .config <<EOF
               # # CONFIG_TARGET_IMAGES_PAD is not set
               # # CONFIG_VMDK_IMAGES is not set
-              # EOF    
+              # EOF 
+          sed -i 's/^[ \\t]*//g' ./.config
+          make defconfig    
        
       - name: SSH connection to Actions
         uses:  P3TERX/ssh2actions@main
