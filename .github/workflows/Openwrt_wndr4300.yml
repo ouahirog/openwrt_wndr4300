@@ -37,78 +37,78 @@ jobs:
           cd openwrt-imagebuilder-19.07.7-ar71xx-nand.Linux-x86_64/
           sed -i s/'23552k(ubi),25600k@0x6c0000(firmware)'/'120832k(ubi),122880k@0x6c0000(firmware)'/ target/linux/ar71xx/image/legacy.mk
           cat >> .config <<EOF
-              CONFIG_PACKAGE_kmod-fs-nfs=y
-              CONFIG_PACKAGE_kmod-fs-nfs-common=y
-              CONFIG_PACKAGE_kmod-fs-nfs-v3=y
-              CONFIG_PACKAGE_kmod-fs-nfs-v4=y
-              CONFIG_PACKAGE_kmod-fs-ntfs=y
-              CONFIG_PACKAGE_kmod-fs-squashfs=y
-              EOF
+          CONFIG_PACKAGE_kmod-fs-nfs=y
+          CONFIG_PACKAGE_kmod-fs-nfs-common=y
+          CONFIG_PACKAGE_kmod-fs-nfs-v3=y
+          CONFIG_PACKAGE_kmod-fs-nfs-v4=y
+          CONFIG_PACKAGE_kmod-fs-ntfs=y
+          CONFIG_PACKAGE_kmod-fs-squashfs=y
+          EOF
           cat >> .config <<EOF
-              CONFIG_PACKAGE_luci-app-adbyby-plus=y
-              CONFIG_PACKAGE_luci-app-aria2=y
-              CONFIG_PACKAGE_luci-app-baidupcs-web=y
-              CONFIG_PACKAGE_luci-app-docker=y
-              CONFIG_PACKAGE_luci-app-frpc=y
-              CONFIG_PACKAGE_luci-app-kodexplorer=y
-              CONFIG_PACKAGE_luci-app-minidlna=y
-              CONFIG_PACKAGE_luci-app-openvpn=y
-              CONFIG_PACKAGE_luci-app-openvpn-server=y
-              CONFIG_PACKAGE_luci-app-passwall=y
-              CONFIG_PACKAGE_luci-app-passwall_INCLUDE_ipt2socks=y
-              # CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Shadowsocks is not set
-              CONFIG_PACKAGE_luci-app-passwall_INCLUDE_ShadowsocksR=y
-              # CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Shadowsocks_socks is not set
-              # CONFIG_PACKAGE_luci-app-passwall_INCLUDE_ShadowsocksR_socks is not set
-              CONFIG_PACKAGE_luci-app-passwall_INCLUDE_V2ray=y
-              CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Trojan=y
-              CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Brook=y
-              # CONFIG_PACKAGE_luci-app-passwall_INCLUDE_kcptun is not set
-              CONFIG_PACKAGE_luci-app-passwall_INCLUDE_haproxy=y
-              CONFIG_PACKAGE_luci-app-passwall_INCLUDE_ChinaDNS_NG=y
-              CONFIG_PACKAGE_luci-app-passwall_INCLUDE_pdnsd=y
-              CONFIG_PACKAGE_luci-app-passwall_INCLUDE_dns2socks=y
-              # CONFIG_PACKAGE_luci-app-passwall_INCLUDE_v2ray-plugin is not set
-              # CONFIG_PACKAGE_luci-app-passwall_INCLUDE_simple-obfs is not set
-              CONFIG_PACKAGE_luci-app-qbittorrent=y
-              CONFIG_PACKAGE_luci-app-ssr-plus=y
-              CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks=y
-              CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Simple_obfs=y
-              CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray_plugin=y
-              CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray=y
-              CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Trojan=y
-              # CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Kcptun is not set
-              CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Server=y
-              CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Socks=y
-              CONFIG_PACKAGE_luci-app-ttyd=y
-              CONFIG_PACKAGE_luci-app-v2ray-server=y
-              CONFIG_PACKAGE_luci-app-verysync=y
-              CONFIG_PACKAGE_luci-app-webadmin=y
-              CONFIG_PACKAGE_luci-app-wireguard=y
-              CONFIG_PACKAGE_luci-app-wrtbwmon=y
-              EOF
-              # LuCI主题:
+          CONFIG_PACKAGE_luci-app-adbyby-plus=y
+          CONFIG_PACKAGE_luci-app-aria2=y
+          CONFIG_PACKAGE_luci-app-baidupcs-web=y
+          CONFIG_PACKAGE_luci-app-docker=y
+          CONFIG_PACKAGE_luci-app-frpc=y
+          CONFIG_PACKAGE_luci-app-kodexplorer=y
+          CONFIG_PACKAGE_luci-app-minidlna=y
+          CONFIG_PACKAGE_luci-app-openvpn=y
+          CONFIG_PACKAGE_luci-app-openvpn-server=y
+          CONFIG_PACKAGE_luci-app-passwall=y
+          CONFIG_PACKAGE_luci-app-passwall_INCLUDE_ipt2socks=y
+          # CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Shadowsocks is not set
+          CONFIG_PACKAGE_luci-app-passwall_INCLUDE_ShadowsocksR=y
+          # CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Shadowsocks_socks is not set
+          # CONFIG_PACKAGE_luci-app-passwall_INCLUDE_ShadowsocksR_socks is not set
+          CONFIG_PACKAGE_luci-app-passwall_INCLUDE_V2ray=y
+          CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Trojan=y
+          CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Brook=y
+          # CONFIG_PACKAGE_luci-app-passwall_INCLUDE_kcptun is not set
+          CONFIG_PACKAGE_luci-app-passwall_INCLUDE_haproxy=y
+          CONFIG_PACKAGE_luci-app-passwall_INCLUDE_ChinaDNS_NG=y
+          CONFIG_PACKAGE_luci-app-passwall_INCLUDE_pdnsd=y
+          CONFIG_PACKAGE_luci-app-passwall_INCLUDE_dns2socks=y
+          # CONFIG_PACKAGE_luci-app-passwall_INCLUDE_v2ray-plugin is not set
+          # CONFIG_PACKAGE_luci-app-passwall_INCLUDE_simple-obfs is not set
+          CONFIG_PACKAGE_luci-app-qbittorrent=y
+          CONFIG_PACKAGE_luci-app-ssr-plus=y
+          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks=y
+          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Simple_obfs=y
+          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray_plugin=y
+          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray=y
+          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Trojan=y
+          # CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Kcptun is not set
+          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Server=y
+          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Socks=y
+          CONFIG_PACKAGE_luci-app-ttyd=y
+          CONFIG_PACKAGE_luci-app-v2ray-server=y
+          CONFIG_PACKAGE_luci-app-verysync=y
+          CONFIG_PACKAGE_luci-app-webadmin=y
+          CONFIG_PACKAGE_luci-app-wireguard=y
+          CONFIG_PACKAGE_luci-app-wrtbwmon=y
+          EOF
+          # LuCI主题:
           cat >> .config <<EOF
-              CONFIG_PACKAGE_luci-theme-argon-dark-mod=y
-              CONFIG_PACKAGE_luci-theme-argon-light-mod=y
-              CONFIG_PACKAGE_luci-theme-material=y
-              CONFIG_PACKAGE_luci-theme-netgear=y
-              EOF
-              # 常用软件包:
+          CONFIG_PACKAGE_luci-theme-argon-dark-mod=y
+          CONFIG_PACKAGE_luci-theme-argon-light-mod=y
+          CONFIG_PACKAGE_luci-theme-material=y
+          CONFIG_PACKAGE_luci-theme-netgear=y
+          EOF
+          # 常用软件包:
           cat >> .config <<EOF
-              CONFIG_PACKAGE_curl=y
-              CONFIG_PACKAGE_htop=y
-              CONFIG_PACKAGE_nano=y
-              CONFIG_PACKAGE_screen=y
-              CONFIG_PACKAGE_tree=y
-              CONFIG_PACKAGE_vim-fuller=y
-              CONFIG_PACKAGE_wget=y
-              EOF
-              # 取消编译VMware镜像以及镜像填充 (不要删除被缩进的注释符号):
-              # cat >> .config <<EOF
-              # # CONFIG_TARGET_IMAGES_PAD is not set
-              # # CONFIG_VMDK_IMAGES is not set
-              # EOF 
+          CONFIG_PACKAGE_curl=y
+          CONFIG_PACKAGE_htop=y
+          CONFIG_PACKAGE_nano=y
+          CONFIG_PACKAGE_screen=y
+          CONFIG_PACKAGE_tree=y
+          CONFIG_PACKAGE_vim-fuller=y
+          CONFIG_PACKAGE_wget=y
+          EOF
+          # 取消编译VMware镜像以及镜像填充 (不要删除被缩进的注释符号):
+          # cat >> .config <<EOF
+          # # CONFIG_TARGET_IMAGES_PAD is not set
+          # # CONFIG_VMDK_IMAGES is not set
+          # EOF 
           sed -i 's/^[ \\t]*//g' ./.config
           make defconfig    
        
@@ -118,8 +118,9 @@ jobs:
         
       - name: make image
         run: |  
-          sudo make image PROFILE=WNDR4300V1 PACKAGES="luci"
-          
+          sudo make image PROFILE=WNDR4300V1 PACKAGES="luci dnsmasq-full ipset curl wget iperf3 tcpdump luci-app-wol"
+#          sudo make image PROFILE=WNDR4300V1 PACKAGES="luci dnsmasq-full"
+ #         PACKAGES="base-files busybox dnsmasq dropbear firewall fstools hostapd-common ip6tables iptables iw iwinfo jshn jsonfilter kernel kmod-ath kmod-ath9k kmod-ath9k-common kmod-cfg80211 kmod-crypto-aes kmod-crypto-arc4 kmod-crypto-core kmod-gpio-button-hotplug kmod-ip6tables kmod-ipt-conntrack kmod-ipt-core kmod-ipt-nat kmod-ipv6 kmod-ledtrig-usbdev kmod-lib-crc-ccitt kmod-mac80211 kmod-nls-base kmod-ppp kmod-pppoe kmod-pppox kmod-slhc kmod-usb-core kmod-usb-ohci kmod-usb2 libblobmsg-json libc libgcc libip4tc libip6tc libiwinfo libiwinfo-lua libjson-c libjson-script liblua libnl-tiny libubox libubus libubus-lua libuci libuci-lua libxtables lua luci luci-app-firewall luci-base luci-lib-nixio luci-mod-admin-full luci-proto-ipv6 luci-proto-ppp luci-theme-bootstrap mtd netifd odhcp6c odhcpd opkg ppp ppp-mod-pppoe procd procd-nand swconfig ubi-utils uboot-envtools ubox ubus ubusd uci uhttpd uhttpd-mod-ubus wpad-mini"
 
               
       - name: Assemble Artifact
