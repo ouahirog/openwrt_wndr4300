@@ -54,7 +54,10 @@ jobs:
           # EOF 
           #sed -i 's/^[ \\t]*//g' ./.config
           #make defconfig    
-       
+          
+#          mkdir -p files/etc/config
+#          scp root@192.168.1.1:/etc/config/network files/etc/config/
+          
       - name: SSH connection to Actions
         uses:  P3TERX/ssh2actions@main
         if: env.SSH_ACTIONS == 'true'
