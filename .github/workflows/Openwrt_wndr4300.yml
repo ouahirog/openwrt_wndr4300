@@ -36,24 +36,7 @@ jobs:
           tar -xvf openwrt-imagebuilder-19.07.7-ar71xx-nand.Linux-x86_64.tar
           cd openwrt-imagebuilder-19.07.7-ar71xx-nand.Linux-x86_64/
           sed -i s/'23552k(ubi),25600k@0x6c0000(firmware)'/'120832k(ubi),122880k@0x6c0000(firmware)'/ target/linux/ar71xx/image/legacy.mk
-          # LuCI主题:
- #         cat >> .config <<EOF
- #         CONFIG_PACKAGE_luci-theme-argon-dark-mod=y
- #         CONFIG_PACKAGE_luci-theme-argon-light-mod=y
- #         CONFIG_PACKAGE_luci-theme-material=y
- #         CONFIG_PACKAGE_luci-theme-netgear=y
- #         EOF
-          # 常用软件包:
- #         cat >> .config <<EOF
- #         CONFIG_PACKAGE_nano=y
- #         EOF
-          # 取消编译VMware镜像以及镜像填充 (不要删除被缩进的注释符号):
-          # cat >> .config <<EOF
-          # # CONFIG_TARGET_IMAGES_PAD is not set
-          # # CONFIG_VMDK_IMAGES is not set
-          # EOF 
-          #sed -i 's/^[ \\t]*//g' ./.config
-          #make defconfig          
+         
           mkdir -p files/etc/config
           cat >> files/etc/config/network <<EOF
           config interface 'loopback'
