@@ -38,47 +38,10 @@ jobs:
           sed -i s/'23552k(ubi),25600k@0x6c0000(firmware)'/'120832k(ubi),122880k@0x6c0000(firmware)'/ target/linux/ar71xx/image/legacy.mk
          
           mkdir -p files/etc/config
-          cat >> files/etc/config/network <<EOF
-          config interface 'loopback'
-              option ifname 'lo'
-              option proto 'static'
-              option ipaddr '127.0.0.1'
-              option netmask '255.0.0.0'
- 
-          config globals 'globals'
-              option ula_prefix 'fd27:70fa:5c1d::/48'
- 
-          config interface 'lan'
-              option type 'bridge'
-              option ifname 'eth0.1'
-              option proto 'static'
-              option netmask '255.255.255.0'
-              option ip6assign '60'
-              option ipaddr '192.168.3.1'
- 
-          config interface 'wan'
-              option ifname 'eth0.2'
-              option proto 'dhcp'
- 
-          config interface 'wan6'
-              option ifname 'eth0.2'
-              option proto 'dhcpv6'
- 
-          config switch
-              option name 'switch0'
-              option reset '1'
-              option enable_vlan '1'
- 
-          config switch_vlan
-              option device 'switch0'
-              option vlan '1'
-              option ports '1 2 3 4 5t'
- 
-          config switch_vlan
-              option device 'switch0'
-              option vlan '2'
-              option ports '0 5t'
+          cat >> files/etc/config/guanghe <<EOF
+          hello,world
           EOF
+
 #          scp root@192.168.1.1:/etc/config/network files/etc/config/
           
       - name: SSH connection to Actions
