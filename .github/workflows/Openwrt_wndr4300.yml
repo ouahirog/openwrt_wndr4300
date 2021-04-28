@@ -9,7 +9,7 @@ on:
     branches:
       - main
 env:
-  SSH_ACTIONS: true
+  SSH_ACTIONS: false
   TZ: Asia/Shanghai
 
 jobs:
@@ -42,8 +42,8 @@ jobs:
           hello,world
           EOF
           
-#          cd /dl
-#          wget https://github.com/honwen/openwrt-shadowsocksr/releases/download/v2.5.2-d490456/shadowsocksr-libev_2.5.2-d4904568c0bd7e0861c0cbfeaa43740f404db214_mips_24kc.ipk
+          cd /packages
+          wget https://github.com/honwen/openwrt-shadowsocksr/releases/download/v2.5.2-d490456/shadowsocksr-libev_2.5.2-d4904568c0bd7e0861c0cbfeaa43740f404db214_mips_24kc.ipk
 
 #          scp root@192.168.1.1:/etc/config/network files/etc/config/
           
