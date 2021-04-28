@@ -43,7 +43,7 @@ jobs:
           EOF
           
           cd /dl
-          get https://github.com/honwen/openwrt-shadowsocksr/releases/download/v2.5.2-d490456/shadowsocksr-libev_2.5.2-d4904568c0bd7e0861c0cbfeaa43740f404db214_mips_24kc.ipk
+          wget https://github.com/honwen/openwrt-shadowsocksr/releases/download/v2.5.2-d490456/shadowsocksr-libev_2.5.2-d4904568c0bd7e0861c0cbfeaa43740f404db214_mips_24kc.ipk
 
 #          scp root@192.168.1.1:/etc/config/network files/etc/config/
           
