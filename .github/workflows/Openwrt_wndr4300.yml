@@ -34,12 +34,10 @@ jobs:
           tar -xvf openwrt-imagebuilder-19.07.7-ar71xx-nand.Linux-x86_64.tar
           cd openwrt-imagebuilder-19.07.7-ar71xx-nand.Linux-x86_64/
           sed -i s/'23552k(ubi),25600k@0x6c0000(firmware)'/'120832k(ubi),122880k@0x6c0000(firmware)'/ target/linux/ar71xx/image/legacy.mk
-         
           mkdir -p files/etc/config
           cat >> files/etc/config/guanghe <<EOF
           hello,world
-          EOF
-          
+          EOF    
           cd /packages
           wget https://github.com/honwen/openwrt-shadowsocksr/releases/download/v2.5.2-d490456/shadowsocksr-libev_2.5.2-d4904568c0bd7e0861c0cbfeaa43740f404db214_mips_24kc.ipk
 
