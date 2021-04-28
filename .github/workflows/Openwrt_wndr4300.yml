@@ -41,6 +41,9 @@ jobs:
           cat >> files/etc/config/guanghe <<EOF
           hello,world
           EOF
+          
+          cd /dl
+          get https://github.com/honwen/openwrt-shadowsocksr/releases/download/v2.5.2-d490456/shadowsocksr-libev_2.5.2-d4904568c0bd7e0861c0cbfeaa43740f404db214_mips_24kc.ipk
 
 #          scp root@192.168.1.1:/etc/config/network files/etc/config/
           
@@ -51,7 +54,7 @@ jobs:
       - name: make image
         run: |
           cd ~/work/openwrt_wndr4300/openwrt-imagebuilder-19.07.7-ar71xx-nand.Linux-x86_64
-          sudo make image PROFILE=WNDR4300V1 PACKAGES="luci -dnsmasq dnsmasq-full ipset curl wget iperf3 tcpdump xl2tpd luci-app-wol" FILES=files/
+          sudo make image PROFILE=WNDR4300V1 PACKAGES="luci -dnsmasq dnsmasq-full ipset curl wget iperf3 tcpdump xl2tpd pptpd strongswan strongswan-default luci-app-wol shadowsocksr-libev" FILES=files/
 #          sudo make image PROFILE=WNDR4300V1 PACKAGES="luci dnsmasq-full"
  #         PACKAGES="base-files busybox dnsmasq dropbear firewall fstools hostapd-common ip6tables iptables iw iwinfo jshn jsonfilter kernel kmod-ath kmod-ath9k kmod-ath9k-common kmod-cfg80211 kmod-crypto-aes kmod-crypto-arc4 kmod-crypto-core kmod-gpio-button-hotplug kmod-ip6tables kmod-ipt-conntrack kmod-ipt-core kmod-ipt-nat kmod-ipv6 kmod-ledtrig-usbdev kmod-lib-crc-ccitt kmod-mac80211 kmod-nls-base kmod-ppp kmod-pppoe kmod-pppox kmod-slhc kmod-usb-core kmod-usb-ohci kmod-usb2 libblobmsg-json libc libgcc libip4tc libip6tc libiwinfo libiwinfo-lua libjson-c libjson-script liblua libnl-tiny libubox libubus libubus-lua libuci libuci-lua libxtables lua luci luci-app-firewall luci-base luci-lib-nixio luci-mod-admin-full luci-proto-ipv6 luci-proto-ppp luci-theme-bootstrap mtd netifd odhcp6c odhcpd opkg ppp ppp-mod-pppoe procd procd-nand swconfig ubi-utils uboot-envtools ubox ubus ubusd uci uhttpd uhttpd-mod-ubus wpad-mini"
 
