@@ -53,8 +53,7 @@ jobs:
           # # CONFIG_VMDK_IMAGES is not set
           # EOF 
           #sed -i 's/^[ \\t]*//g' ./.config
-          #make defconfig    
-          
+          #make defconfig          
           mkdir -p files/etc/config
           cat >> files/etc/config/network <<EOF
           config interface 'loopback'
