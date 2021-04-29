@@ -36,7 +36,7 @@ jobs:
           sed -i s/'23552k(ubi),25600k@0x6c0000(firmware)'/'120832k(ubi),122880k@0x6c0000(firmware)'/ target/linux/ar71xx/image/legacy.mk
           mkdir -p files/etc/config
           cat >> files/etc/banner2 <<EOF
-          Ouhai Networks Build 2021.4.29
+          Build by Ouhai Networks 2021.4.29
           EOF
           
           cd packages
