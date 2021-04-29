@@ -7,7 +7,7 @@ on:
     branches:
       - main
 env:
-  SSH_ACTIONS: true
+  SSH_ACTIONS: false
   TZ: Asia/Shanghai
 
 jobs:
@@ -35,8 +35,8 @@ jobs:
           cd openwrt-imagebuilder-19.07.7-ar71xx-nand.Linux-x86_64/
           sed -i s/'23552k(ubi),25600k@0x6c0000(firmware)'/'120832k(ubi),122880k@0x6c0000(firmware)'/ target/linux/ar71xx/image/legacy.mk
           mkdir -p files/etc/config
-          cat >> files/etc/banner <<EOF
-          Ouhai Networks 2021.4.29
+          cat >> files/etc/banner2 <<EOF
+          Ouhai Networks Build 2021.4.29
           EOF
           
           cd packages
@@ -55,7 +55,7 @@ jobs:
       - name: make image
         run: |
           cd ~/work/openwrt_wndr4300/openwrt-imagebuilder-19.07.7-ar71xx-nand.Linux-x86_64
-          sudo make image PROFILE=WNDR4300V1 PACKAGES="luci -dnsmasq dnsmasq-full ipset curl wget iperf3 tcpdump xl2tpd pptpd strongswan strongswan-default luci-app-wol shadowsocksr-libev vlmcsd luci-app-vlmcsd bandwidthd mosquitto-client-nossl mosquitto-nossl luci-app-ddns ddns-scripts_dnspod" FILES=files/
+          sudo make image PROFILE=WNDR4300V1 PACKAGES="luci -dnsmasq dnsmasq-full ipset bash curl wget iperf3 tcpdump xl2tpd pptpd strongswan strongswan-default luci-app-wol shadowsocksr-libev vlmcsd luci-app-vlmcsd bandwidthd mosquitto-client-nossl mosquitto-nossl luci-app-ddns ddns-scripts_dnspod" FILES=files/
 #          sudo make image PROFILE=WNDR4300V1 PACKAGES="luci dnsmasq-full"
  #         PACKAGES="base-files busybox dnsmasq dropbear firewall fstools hostapd-common ip6tables iptables iw iwinfo jshn jsonfilter kernel kmod-ath kmod-ath9k kmod-ath9k-common kmod-cfg80211 kmod-crypto-aes kmod-crypto-arc4 kmod-crypto-core kmod-gpio-button-hotplug kmod-ip6tables kmod-ipt-conntrack kmod-ipt-core kmod-ipt-nat kmod-ipv6 kmod-ledtrig-usbdev kmod-lib-crc-ccitt kmod-mac80211 kmod-nls-base kmod-ppp kmod-pppoe kmod-pppox kmod-slhc kmod-usb-core kmod-usb-ohci kmod-usb2 libblobmsg-json libc libgcc libip4tc libip6tc libiwinfo libiwinfo-lua libjson-c libjson-script liblua libnl-tiny libubox libubus libubus-lua libuci libuci-lua libxtables lua luci luci-app-firewall luci-base luci-lib-nixio luci-mod-admin-full luci-proto-ipv6 luci-proto-ppp luci-theme-bootstrap mtd netifd odhcp6c odhcpd opkg ppp ppp-mod-pppoe procd procd-nand swconfig ubi-utils uboot-envtools ubox ubus ubusd uci uhttpd uhttpd-mod-ubus wpad-mini"
            
