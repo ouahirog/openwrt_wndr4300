@@ -51,6 +51,7 @@ jobs:
         
       - name: make image
         run: |
+          ls
           cd ~/work/openwrt_wndr4300/openwrt-imagebuilder-19.07.7-ar71xx-nand.Linux-x86_64
           sudo make image PROFILE=WNDR4300V1 PACKAGES="luci -dnsmasq dnsmasq-full ipset curl wget iperf3 tcpdump xl2tpd pptpd strongswan strongswan-default luci-app-wol shadowsocksr-libev vlmcsd luci-app-vlmcsd" FILES=files/
 #          sudo make image PROFILE=WNDR4300V1 PACKAGES="luci dnsmasq-full"
