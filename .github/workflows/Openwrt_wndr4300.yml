@@ -43,6 +43,7 @@ jobs:
           wget https://github.com/ouahirog/openwrt_wndr4300/raw/main/shadowsocksr-libev_2018-03-07-d63ff863800a5645aca4309d5dd5962bd1e95543_mips_24kc.ipk
           wget https://github.com/cokebar/openwrt-vlmcsd/blob/gh-pages/vlmcsd_svn1113-1_mips_24kc.ipk
           wget https://github.com/cokebar/luci-app-vlmcsd/releases/download/v1.0.2-1/luci-app-vlmcsd_1.0.2-1_all.ipk
+          ls
 #         scp root@192.168.1.1:/etc/config/network files/etc/config/
 #         wget https://github.com/honwen/openwrt-shadowsocksr/releases/download/v2.5.2-d490456/shadowsocksr-libev_2.5.2-d4904568c0bd7e0861c0cbfeaa43740f404db214_mips_24kc.ipk
 
