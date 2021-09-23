@@ -31,10 +31,10 @@ jobs:
           REPO_BRANCH="$(curl -s https://api.github.com/repos/openwrt/openwrt/tags | jq -r '.[].name' | grep v21 | head -n 1 | sed -e 's/v//')"
           mkdir ~/work/openwrt_rk3399
           cd ~/work/openwrt_rk3399
-          wget https://downloads.openwrt.org/releases/$REPO_BRANCH/targets/rockchip/armv8/openwrt-imagebulder-$REPO_BRANCH-rockchip-armv8.Linux-x86_64.tar.xz
-          xz -d openwrt-imagebulder-$REPO_BRANCH-rockchip-armv8.Linux-x86_64.tar.xz
-          tar -xvf openwrt-imagebulder-$REPO_BRANCH-rockchip-armv8.Linux-x86_64.tar
-          cd openwrt-imagebulder-$REPO_BRANCH-rockchip-armv8.Linux-x86_64/
+          wget https://downloads.openwrt.org/releases/$REPO_BRANCH/targets/rockchip/armv8/openwrt-imagebuilder-$REPO_BRANCH-rockchip-armv8.Linux-x86_64.tar.xz
+          xz -d openwrt-imagebuilder-$REPO_BRANCH-rockchip-armv8.Linux-x86_64.tar.xz
+          tar -xvf openwrt-imagebuilder-$REPO_BRANCH-rockchip-armv8.Linux-x86_64.tar
+          cd openwrt-imagebuilder-$REPO_BRANCH-rockchip-armv8.Linux-x86_64/
           mkdir -p files/etc/config
           cat >> files/etc/banner2 <<EOF
           Build by OuhaiNetworks, 2021.4.30
