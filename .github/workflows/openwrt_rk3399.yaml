@@ -12,7 +12,7 @@ env:
 
 jobs:
   build_openwrt_rk3399:
-    name: Build OpenWrt_rk3399 and release
+    name: Build OpenWrt_rk3399 and release2
     runs-on: ubuntu-18.04
 
     steps:
