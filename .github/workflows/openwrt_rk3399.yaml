@@ -29,7 +29,8 @@ jobs:
       - name: Get Openwrt_rk3399 source & compile
         run: |
           REPO_BRANCH="$(curl -s https://api.github.com/repos/openwrt/openwrt/tags | jq -r '.[].name' | grep v21 | head -n 1 | sed -e 's/v//')"
-          cd ~/work/openwrt_rk3399
+          mkdir ~/work/openwrt_wndr4300
+          cd ~/work/openwrt_wndr4300
           wget https://downloads.openwrt.org/releases/$REPO_BRANCH/targets/rockchip/armv8/openwrt-imagebulder-$REPO_BRANCH-rockchip-armv8.Linux-x86_64.tar.xz
           xz -d openwrt-imagebulder-$REPO_BRANCH-rockchip-armv8.Linux-x86_64.tar.xz
           tar -xvf openwrt-imagebulder-$REPO_BRANCH-rockchip-armv8.Linux-x86_64.tar
