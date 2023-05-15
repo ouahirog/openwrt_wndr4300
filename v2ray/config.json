@@ -32,7 +32,8 @@
           "alterid": 64
         }
       ]
-  },
+  }
+  }]
   "outbound": {
     "protocol": "freedom",
     "settings": {}
