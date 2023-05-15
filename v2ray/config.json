@@ -33,7 +33,7 @@
         }
       ]
   }
-  }]
+  }],
   "outbound": {
     "protocol": "freedom",
     "settings": {}
